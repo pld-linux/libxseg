@@ -1,0 +1,20 @@
+--- libxseg-0.4.1/src/include/xseg/xlock.h.orig	2015-07-17 17:47:32.000000000 +0200
++++ libxseg-0.4.1/src/include/xseg/xlock.h	2015-10-06 20:52:54.525395877 +0200
+@@ -129,16 +129,9 @@
+ 	}
+ }
+ 
+-/* x86_64 specific
+- * TODO: Move to an arch specific directory
+- */
+ static inline void * __get_pc()
+ {
+-	void * rip;
+-
+-	__asm__ volatile ("lea (%%rip, 1),  %0" : "=r"(rip));
+-
+-	return rip;
++	return __builtin_return_address(0);
+ }
+ 
+ __attribute__((always_inline)) static inline unsigned long xlock_acquire(struct xlock *lock)
