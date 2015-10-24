@@ -1,0 +1,11 @@
+--- libxseg-0.4.1/src/CMakeLists.txt.orig	2015-07-17 17:47:32.000000000 +0200
++++ libxseg-0.4.1/src/CMakeLists.txt	2015-10-24 22:59:06.206279960 +0200
+@@ -81,7 +81,7 @@
+ 	OUTPUT_NAME xseg
+ )
+ 
+-INSTALL_TARGETS(/lib xseg)
++INSTALL_TARGETS(/lib${LIB_SUFFIX} xseg)
+ INSTALL_TARGETS(/bin xseg-tool)
+ #INSTALL_FILES(/include )
+ INSTALL(DIRECTORY include DESTINATION /usr FILES_MATCHING PATTERN "*.h")

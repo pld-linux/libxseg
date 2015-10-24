@@ -12,6 +12,7 @@ Group:		Libraries
 Source0:	https://github.com/grnet/libxseg/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	75c4afa0ce0065ff594b48cdb7901baa
 Patch0:		%{name}-archs.patch
+Patch1:		%{name}-libdir.patch
 URL:		https://github.com/grnet/libxseg
 BuildRequires:	cmake >= 2.8
 # h2xml, xml2py
@@ -76,6 +77,7 @@ Dokumentacja biblioteki xseg.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 install -d build
